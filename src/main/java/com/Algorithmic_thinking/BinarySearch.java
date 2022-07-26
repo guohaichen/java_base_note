@@ -31,7 +31,12 @@ public class BinarySearch {
         结束条件：left>right;
         * */
         while (left <= right) {
-            int middle = (left + right) / 2;
+            int middle = (left + right) >>> 1; //(left+right)/2
+            /*
+            思考:如果target > array[middle]，则left为middle+1，假设left和right都很大了，超过了integer的最大值，则会出错
+                解决方法：
+                无符号右移1位，>>>1
+            */
             if (target == array[middle]) {
                 return middle;
             }
