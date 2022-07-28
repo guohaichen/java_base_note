@@ -1,4 +1,4 @@
-package com.base.cglibProxy;
+package com.design_mode.proxy.cglibProxy;
 
 import com.base.spring.proxy.base.Service;
 import com.base.spring.proxy.base.ServiceImpl;

@@ -1,4 +1,4 @@
-package com.base.spring.proxy.JDKProxy;
+package com.design_mode.proxy.cglibProxy.JDKProxy;
 
 import com.base.spring.proxy.base.Service;
 import com.base.spring.proxy.base.ServiceImpl;
