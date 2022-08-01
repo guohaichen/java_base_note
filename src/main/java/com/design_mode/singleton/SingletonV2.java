@@ -20,14 +20,14 @@ public class SingletonV2 {
 
     //对外提供public 获取对象方法
     public static  SingletonV2 getInstance()   {
-        //如果还没创建，就创建返回一个，这里其实是有并发安全问题，解决方法——>加锁-->代码优化——>双检锁
+        //如果还没创建，就创建返回一个，这里其实是有并发安全问题，多个线程都都进行if判断，都为null，都会去创建；解决方法——>加锁-->代码优化——>双检锁
         if (instance == null) {
             instance = new SingletonV2();
         }
         return instance;
     }
 
-    //创建多个线程来测试
+    //创建多个线程来测试, 在构造方法中输出了construct，如果construct输出多次，则说明创建了多个对象
     public static void main(String[] args) throws InterruptedException {
         for (int i = 0; i < 10; i++) {
             new Thread(SingletonV2::getInstance).start();

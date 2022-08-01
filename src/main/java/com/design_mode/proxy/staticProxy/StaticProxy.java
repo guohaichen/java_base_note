@@ -1,4 +1,4 @@
-package com.design_mode.proxy.cglibProxy.staticProxy;
+package com.design_mode.proxy.staticProxy;
 
 import com.base.spring.proxy.base.Service;
 import com.base.spring.proxy.base.ServiceImpl;
