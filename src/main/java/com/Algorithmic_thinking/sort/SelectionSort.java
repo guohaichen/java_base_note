@@ -7,9 +7,10 @@ import static com.Algorithmic_thinking.sort.Bubbling.swap;
 /**
  * @author cgh
  * @create 2022-08-01 20:37
- * 选择排序、
- * - 思路：
- * 将已排好序的元素放在元素前面，每次只对未排序的元素进行排序，就是选择排序；
+ * 选择排序
+ * 思路：
+ *      1. 将数组分成分成两个子集，已排序的和未排序的，每一轮从未排序中数组找到最小元素，并放入排序子集中；
+ *      2. 反复以上步骤，直到整个数组有序；
  */
 public class SelectionSort {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.base.spring.proxy.base;
+package com.design_mode.proxy;
 
 
 /**

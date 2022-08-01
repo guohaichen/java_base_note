@@ -1,7 +1,7 @@
 package com.design_mode.proxy.staticProxy;
 
-import com.base.spring.proxy.base.Service;
-import com.base.spring.proxy.base.ServiceImpl;
+import com.design_mode.proxy.Service;
+import com.design_mode.proxy.ServiceImpl;
 
 /**
  * @author cgh
