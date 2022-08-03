@@ -8,8 +8,7 @@ import static com.Algorithmic_thinking.sort.Bubbling.swap;
  * @author cgh
  * @create 2022-08-01 22:43
  * 插入排序
- * - 思路 和选择排序思路一样，分成两个子集；将未排序的元素在有序的子集中比较进行插入，
- *
+ * - 思路 和选择排序思路一样，分成两个子集；将未排序的元素在有序的子集中比较进行插入
  */
 public class InsertSort {
     public static void main(String[] args) {

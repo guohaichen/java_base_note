@@ -31,7 +31,7 @@ public class Bubbling {
         System.out.println("遍历完成:        \t" + Arrays.toString(array));
     }
     //交换元素，抽取成方法
-    static void swap(int[] array, int pre, int next) {
+    public static void swap(int[] array, int pre, int next) {
         int temp = array[next];
         array[next] = array[pre];
         array[pre] = temp;
