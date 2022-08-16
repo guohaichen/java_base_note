@@ -3,22 +3,19 @@ package com.leetcode.junior.string;
 /**
  * @author cgh
  * @create 2022-08-03 23:53
- * 反转字符串
+ * 反转字符串,双指针法
  */
 public class ReverseString {
     public static void main(String[] args) {
         char[] string = {'h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd'};
-        reverseString(string);
-        System.out.println("双指针反转");
         System.out.println(string);
-    }
-
-    static void reverseString(char[] s) {
+        System.out.println("双指针反转");
         int left = 0;
-        int right = s.length -1;
+        int right = string.length -1;
         while (left < right) {
-           swap(s,left++,right--);
+           swap(string,left++,right--);
         }
+        System.out.println(string);
     }
 
     private static void swap(char[] s, int left, int right) {

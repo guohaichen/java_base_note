@@ -137,3 +137,29 @@ public class InsertSort {
 
 ```
 
+### LeetCode
+
+#### 反转字符串
+
+```java
+public class ReverseString {
+    public static void main(String[] args) {
+        char[] string = {'h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd'};
+        System.out.println(string);
+        System.out.println("双指针反转");
+        int left = 0;
+        int right = string.length -1;
+        while (left < right) {
+           swap(string,left++,right--);
+        }
+        System.out.println(string);
+    }
+
+    private static void swap(char[] s, int left, int right) {
+        char temp = s[right];
+        s[right] = s[left];
+        s[left] = temp;
+    }
+}
+```
+
