@@ -24,9 +24,8 @@ public class RotateArray {
 
     //解法1:创建一个临时数组
     static void rotate1(int[] nums, int key) {
-        int[] temp = new int[nums.length];
         //拷贝一份数组
-        System.arraycopy(nums, 0, temp, 0, nums.length);
+        int[] temp = Arrays.copyOf(nums, nums.length);
         // (i+key)%nums.length key为偏移量，key肯定会超outOfIndex，对数组length求余
         for (int i = 0; i < nums.length; i++) {
             nums[(i+key)%nums.length] = temp[i];
