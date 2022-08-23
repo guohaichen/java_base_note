@@ -7,7 +7,7 @@ package com.design_mode.singleton;
  */
 public class SingletonV3 {
 
-    private static SingletonV3 instance = null;
+    private static volatile SingletonV3 instance = null;
 
     private SingletonV3() {
         System.out.println("construct");
