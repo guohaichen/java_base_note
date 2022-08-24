@@ -4,6 +4,7 @@ package com.design_mode.singleton;
  * @author cgh
  * @create 2022-07-27 11:02
  * 懒汉式 单例模式解决并发安全问题 以及优化
+ * double check lock
  */
 public class SingletonV3 {
 
