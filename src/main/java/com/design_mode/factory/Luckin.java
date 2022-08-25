@@ -1,13 +1,16 @@
-package com.design_mode.simpleFactory;
+package com.design_mode.factory;
 
 /**
  * @author cgh
  * @create 2022-08-25 9:07
  */
-public class Luckin extends Coffee{
+public class Luckin extends Coffee {
 
     public Luckin() {
         System.out.println("luckin coffee");
+        addCoffBean();
+        addSugar();
+        addMilk();
     }
 
     @Override

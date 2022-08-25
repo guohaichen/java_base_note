@@ -1,4 +1,4 @@
-package com.design_mode.simpleFactory;
+package com.design_mode.factory;
 
 /**
  * @author cgh

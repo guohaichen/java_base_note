@@ -1,4 +1,4 @@
-package com.design_mode.simpleFactory;
+package com.design_mode.factory;
 
 /**
  * @author cgh
@@ -8,6 +8,9 @@ public class Starbucks extends Coffee {
 
     public Starbucks() {
         System.out.println("starbucks");
+        addCoffBean();
+        addSugar();
+        addMilk();
     }
 
     @Override
