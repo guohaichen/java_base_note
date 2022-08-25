@@ -16,10 +16,9 @@ class StaticProxy implements Service {
     }
 
     @Override
-    public String print(String message) {
+    public void print(String message) {
         System.out.println("proxy before");
         serviceImpl.print(message);
         System.out.println("proxy after");
-        return message;
     }
 }

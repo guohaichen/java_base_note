@@ -10,26 +10,32 @@ import java.lang.reflect.Proxy;
 /**
  * @author cgh
  * @create 2022-06-18 13:59
+ * jdk动态代理
  */
 public class JdkDynamicProxy {
-    public static void main(String[] args) {
-
+    public Service getProxy() {
         ServiceImpl serviceImpl = new ServiceImpl();
-        //classLoader
-        ClassLoader classLoader = JdkDynamicProxy.class.getClassLoader();
-
+        //获得需要代理的类的类加载器
+        ClassLoader classLoader = ServiceImpl.class.getClassLoader();
+        /*
+        loader – the class loader to define the proxy class
+        interfaces – the list of interfaces for the proxy class to implement
+        h – the invocation handler to dispatch method invocations to
+         */
         Service proxyService = (Service) Proxy.newProxyInstance(classLoader, new Class[]{Service.class}, new InvocationHandler() {
             @Override
+            /*
+            proxy 为代理对象
+            method 对应于在代理对象上调用的接口方法的Method实例
+            args 代理对象调用接口方法时传递的实际参数
+             */
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                System.out.println("before");
                 //通过反射使用方法
                 Object result = method.invoke(serviceImpl, args);
-                System.out.println("after");
                 return result;
             }
         });
-        //代理对象调用方法；
-        proxyService.print("2");
+        return proxyService;
     }
 
 }

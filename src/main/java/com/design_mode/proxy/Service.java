@@ -11,7 +11,7 @@ package com.design_mode.proxy;
  */
 //1.1 定义接口，这里用StaticProxy代理ServiceImpl中的print方法
 public interface Service {
-    String print(String message);
+    void print(String message);
 }
 
 

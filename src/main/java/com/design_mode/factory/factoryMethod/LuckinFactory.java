@@ -1,6 +1,5 @@
 package com.design_mode.factory.factoryMethod;
 
-import com.design_mode.factory.Coffee;
 import com.design_mode.factory.Luckin;
 
 /**
@@ -9,7 +8,7 @@ import com.design_mode.factory.Luckin;
  */
 public class LuckinFactory implements CoffeeFactory {
     @Override
-    public Coffee makeCoffee() {
-        return new Luckin();
+    public void makeCoffee() {
+        new Luckin();
     }
 }
