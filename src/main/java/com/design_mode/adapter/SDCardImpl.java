@@ -1,4 +1,4 @@
-package com.design_mode.adapter.classAdapter;
+package com.design_mode.adapter;
 
 /**
  * @author cgh
