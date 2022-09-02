@@ -10,10 +10,10 @@ import java.lang.reflect.Method;
 /**
  * @author cgh
  * @create 2022-06-18 14:11
- * cglib动态代理，使用cglib包下的Enhancer.create（）
- * cglib 不要求目标实现接口，它生成的代理类是目标的子类，因此代理与目标之间是子父关系
+ * cglib动态代理，使用cglib包下的Enhancer.create()
+ * cglib 不要求目标实现接口，它生成的代理类是目标的子类，因此代理与目标之间是子父关系,故cglib代理不能代理final修饰的类
  */
-public class CglibProxyDemo {
+public class CglibDynamicProxy {
     public ServiceImpl getProxy() {
         ServiceImpl serviceImpl = new ServiceImpl();
         ServiceImpl serviceProxy = (ServiceImpl) Enhancer.create(serviceImpl.getClass(), new MethodInterceptor() {
@@ -23,7 +23,7 @@ public class CglibProxyDemo {
                 //反射调用方法
                 Object result = method.invoke(serviceImpl, args);
                 //cglib可以避免使用反射调用方法，使用MethodProxy
-//                Object result = methodProxy.invoke(serviceImpl, args);
+                //Object result = methodProxy.invoke(serviceImpl, args);
                 return result;
             }
         });
