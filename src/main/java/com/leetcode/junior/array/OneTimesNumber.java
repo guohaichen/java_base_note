@@ -42,6 +42,7 @@ public class OneTimesNumber {
         for (int num : nums) {
             //因为异或运算，出现相同2次的数会为0，留下的便是出现1次的数
             result = num ^ result;
+//            result ^= num;
         }
         return result;
     }

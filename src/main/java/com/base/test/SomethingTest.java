@@ -2,29 +2,59 @@ package com.base.test;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+
 /**
  * @author cgh
  * @create 2022-06-28 15:52
  */
 public class SomethingTest {
+    public static void main(String[] args) {
+        System.out.println("test");
+    }
     @Test
-    public void test(){
-        String str = new String("事假10-14 09:00到10-14 13:30 0.5天");
-        int index = str.indexOf("事假");
-        System.out.println("事假下标"+index);
+    public void test() {
+        String str = new String("需求分析-初级-20211001");
+        int index = str.indexOf("-");
+        System.out.println("- 下标为" + index);
+        String reqName = str.substring(0, index);
+        System.out.println(reqName);
+    }
 
-        String substring = str.substring(index, index + 25);
-        int time = substring.indexOf(":");
+    @Test
+    public void stringTest() {
+        String dictCode = "sys_user,realname,id";
+        if (dictCode.contains(",")) {
+            //关联表字典（举例：sys_user,realname,id）
+            String[] params = dictCode.split(",");
+            System.out.println(Arrays.toString(params));
+        }
+    }
+    @Test
+    public void dateTest(){
+        String date = "2022-12-31";
+        try {
+            Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+            String startDate = new SimpleDateFormat("yyyy年MM月dd日").format(parse);
+            System.out.println(startDate);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
-        System.out.println(":下标"+time);
+        /*String year = date.substring(0, date.indexOf("-"));
+        String month = date.substring(5, date.indexOf("-",5));
 
+        String day = date.substring(8);
 
-
-        String substring1 = substring.substring(time - 2, time + 3);
-
-
-        System.out.println(substring1);
-
+        System.out.println(year);
+        System.out.println(month);
+        System.out.println(day);*/
 
     }
+
+
+
 }

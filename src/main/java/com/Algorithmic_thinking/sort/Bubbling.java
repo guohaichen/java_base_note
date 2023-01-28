@@ -19,7 +19,7 @@ public class Bubbling {
             for (int j = 0; j < array.length - 1 - i; j++) {
                 // 比较相邻的两个元素，
                 if (array[j] > array[j + 1]) {
-                    swap(array,j,j+1);
+                    swap(array, j, j + 1);
                     flag = false;
                 }
             }
@@ -30,10 +30,15 @@ public class Bubbling {
         }
         System.out.println("遍历完成:        \t" + Arrays.toString(array));
     }
+
     //交换元素，抽取成方法
     public static void swap(int[] array, int pre, int next) {
         int temp = array[next];
         array[next] = array[pre];
         array[pre] = temp;
+        //异或写法，节省一个n*temp的内存
+//        array[pre] = array[pre] ^ array[next];
+//        array[next] = array[pre] ^ array[next];
+//        array[pre] = array[pre] ^ array[next];
     }
 }

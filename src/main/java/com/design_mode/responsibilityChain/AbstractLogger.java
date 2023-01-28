@@ -23,6 +23,7 @@ public abstract class AbstractLogger {
         if (this.level <= level) {
             write(message);
         }
+        //向下传递
         if (nextLogger != null) {
             nextLogger.logMessage(level, message);
         }

@@ -8,7 +8,7 @@ package com.design_mode.singleton;
  */
 public class SingletonV1 {
     //静态变量
-    private static final SingletonV1 instance = new SingletonV1();
+    private static final  SingletonV1 instance = new SingletonV1();
 
     //私有化构造方法，不对外提供创建方法
     private SingletonV1() { }

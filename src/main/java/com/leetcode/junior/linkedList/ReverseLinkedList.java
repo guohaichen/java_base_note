@@ -1,7 +1,5 @@
 package com.leetcode.junior.linkedList;
 
-import java.util.LinkedList;
-
 /**
  * @author cgh
  * @create 2022-08-24 22:05
@@ -16,50 +14,49 @@ public class ReverseLinkedList {
         head.setNext(node1);
         node1.setNext(node2);
         node2.setNext(node3);
-        node3.setNext(null);
         selectNode(head);
+        reverse(head);
+        System.out.println();
+        System.out.println("反转后:");
+        selectNode(node3);
     }
-
     //查询链表
     private static void selectNode(Node head) {
         Node temp = head;
-        while (temp != null) {
-            System.out.print(temp+"\t");
+        while (temp!=null) {
+            System.out.print(temp);
             temp = temp.next;
         }
     }
-
-
     //链表反转
-    static LinkedList<Integer> reverse(LinkedList<Integer> head) {
-        return null;
+    static Node reverse(Node head) {
+        Node prev = null;
+        Node curr = head;
+        while (curr != null) {
+            //node的next指向node，但是需要将node的next保存下来，如果辅助了就找不到整个链表了
+            //1->2->3
+            //3->2->1
+            Node next =curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
     }
 
     static class Node {
         int value;
         Node next;
-
         public Node(int value) {
             this.value = value;
         }
-
-        public void setValue(int value) {
-            this.value = value;
-        }
-
         public void setNext(Node next) {
             this.next = next;
         }
-
-        public Node(int value, Node next) {
-            this.value = value;
-            this.next = next;
-        }
-
         @Override
         public String toString() {
             return "Node{" +
-                    "value=" + value + "}";
+                    "value=" + value + "}  ";
         }
     }
 }

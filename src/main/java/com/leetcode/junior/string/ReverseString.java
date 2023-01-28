@@ -3,7 +3,8 @@ package com.leetcode.junior.string;
 /**
  * @author cgh
  * @create 2022-08-03 23:53
- * 反转字符串,双指针法
+ * 反转字符串
+ * 双指针法
  */
 public class ReverseString {
     public static void main(String[] args) {
