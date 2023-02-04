@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  * @author cgh
@@ -13,8 +14,29 @@ import java.util.Date;
  */
 public class SomethingTest {
     public static void main(String[] args) {
-        System.out.println("test");
+        System.out.println("input");
+        Scanner scanner = new Scanner(System.in);
+        int[] array = {0,0,0,0,0,0,0,0,0,0};
+        while (true) {
+            int value = scanner.nextInt();
+            if (value == -1) {
+                break;
+            }
+            if (value >= 1 && value <= 100){
+                //判断哪个下标
+                array[(value-1)/10]++;
+            }
+        }
+        scanner.close();
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i * 10 + 1 + "-" + (i + 1) * 10 + "\t" + "|\t");
+            for (int j = 0; j < array[i]; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
+
     @Test
     public void test() {
         String str = new String("需求分析-初级-20211001");
@@ -33,8 +55,9 @@ public class SomethingTest {
             System.out.println(Arrays.toString(params));
         }
     }
+
     @Test
-    public void dateTest(){
+    public void dateTest() {
         String date = "2022-12-31";
         try {
             Date parse = new SimpleDateFormat("yyyy-MM-dd").parse(date);
@@ -54,7 +77,6 @@ public class SomethingTest {
         System.out.println(day);*/
 
     }
-
 
 
 }
