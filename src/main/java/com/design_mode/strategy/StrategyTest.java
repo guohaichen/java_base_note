@@ -13,5 +13,11 @@ public class StrategyTest {
         //set方法改变策略；
         calculator.setStrategy(new DivisionStrategy());
         System.out.println( calculator.executeStrategy(12, 2));
+
+        Strategy strategy = StrategyFactory.getStrategy(StrategyConstantsEnum.ADDITION_STRATEGY);
+        System.out.println(strategy.doOperation(3, 5));
+
+        Strategy subStrategy = StrategyFactory.getStrategy(StrategyConstantsEnum.SUBTRACTION_STRATEGY);
+        System.out.println(subStrategy.doOperation(1, 4));
     }
 }
