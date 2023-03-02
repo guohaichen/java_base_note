@@ -12,15 +12,44 @@ package com.design_mode.prototype;
  */
 public class PrototypeModel {
     public static void main(String[] args) throws CloneNotSupportedException {
-        User user = new User();
-        User cloneUser = user.clone();
+        User user = new User("jack");
+        user.setAge(15);
         System.out.println("user hasCode"+user.hashCode());
+        User cloneUser = user.clone();
+        user.setAge(18);
         System.out.println("cloneUser hasCode"+cloneUser.hashCode());
+        //改变原引用类型，而克隆对象的引用类型还是指向原有属性的所指向的内存地址，如user.name已是new Name:tony，而clone对象还指向jack
+        user.setName("new Name:tony");
+        System.out.println(user.getName());
+        //基本类型15->18
+        System.out.println(cloneUser.getName()+":"+user.getAge());
+
+        cloneUser.setName("clone change name");
+        System.out.println(cloneUser.getName());
     }
 
     static class User implements Cloneable{
+        private String name;
+
+        private int age;
         public User() {
             System.out.println("原型构造");
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+        public User(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+        public int getAge() {
+            return age;
+        }
+        public void setAge(int age) {
+            this.age = age;
         }
 
         @Override
