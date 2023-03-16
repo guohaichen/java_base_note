@@ -21,6 +21,7 @@ public class SingletonV2 {
     //对外提供public 获取对象方法
     public static  SingletonV2 getInstance()   {
         //如果还没创建，就创建返回一个，这里其实是有并发安全问题，多个线程都都进行if判断，都为null，都会去创建；解决方法——>加锁-->代码优化——>双检锁
+        //方法加上synchronized也可以解决并发安全问题。
         if (instance == null) {
             instance = new SingletonV2();
         }
