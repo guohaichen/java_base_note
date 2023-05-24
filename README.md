@@ -355,3 +355,6 @@ public class ReverseString {
 >
 >   如果要表示一种has-a关系，并且是为了解决抽象而非代码复用的问题，就用接口；
 
+### Java对象可能在栈上分配吗？
+
+> 可能，Java中的逃逸分析技术可以确定一些对象是否可以在栈上分批额。对于不逃逸的局部对象，逃逸分析可以将他们分配在栈上，而不是在堆上，从而提高性能。这种栈上分配的优化是由即时编译器 JIT 根据逃逸分析结果进行的。 见com.base.escapeAnalysis.AllocateMemoryOnStack程序举例；
