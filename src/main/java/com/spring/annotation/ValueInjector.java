@@ -1,4 +1,4 @@
-package com.spring;
+package com.spring.annotation;
 
 import java.lang.reflect.Field;
 

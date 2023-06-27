@@ -28,18 +28,20 @@ public class ReverseLinkedList {
             temp = temp.next;
         }
     }
-    //链表反转
+    //链表反转，双指针法
     static Node reverse(Node head) {
         Node prev = null;
         Node curr = head;
         while (curr != null) {
-            //node的next指向node，但是需要将node的next保存下来，如果辅助了就找不到整个链表了
             //1->2->3
             //3->2->1
-            Node next =curr.next;
+            //temp 临时变量，如 1->2->3 ，要改变 2->1,需要先将 2->3 这个指针保存下来，不然就找不到了。
+            Node temp =curr.next;
+            // 将 2 指向 1；
             curr.next = prev;
+            //pre.cur指针后移， pre1 cur2 temp3
             prev = curr;
-            curr = next;
+            curr = temp;
         }
         return prev;
     }
