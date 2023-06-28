@@ -358,3 +358,17 @@ public class ReverseString {
 ### Java对象可能在栈上分配吗？
 
 > 可能，Java中的逃逸分析技术可以确定一些对象是否可以在栈上分批额。对于不逃逸的局部对象，逃逸分析可以将他们分配在栈上，而不是在堆上，从而提高性能。这种栈上分配的优化是由即时编译器 JIT 根据逃逸分析结果进行的。 见com.base.escapeAnalysis.AllocateMemoryOnStack程序举例；
+
+### Java集合
+
+#### HashMap
+
+> HashMap实现了Map接口，是一个经典高效的kv型数据类型；底层数据结构采用了`数组`+`链表/红黑树`的形式；一些经典的问题如下：
+
+- HashMap的底层数据结构，哈希碰撞是如何解决的？
+- 链表的树化情况，什么情况下会退化为链表？
+- 扩容规则为何是2^n，负载因子为何为0.7？
+- 说一下`hash`方法
+- HashMap的线程安全问题？解释一下ConcurrentModificationException?
+- jdk1.7和1.8中的HashMap有什么区别
+- put方法简述等；
