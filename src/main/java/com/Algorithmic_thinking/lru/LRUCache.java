@@ -1,7 +1,9 @@
 package com.Algorithmic_thinking.lru;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author cgh
@@ -13,6 +15,8 @@ import java.util.Map;
  * 2. 缓存命中率，考虑如何最大化命中率，将最近使用的放在链表头，淘汰链表尾部等
  * 3. 缓存淘汰策略，在缓存容量不足时，需要考虑选择最久未使用的数据进行淘汰。
  * 4. 并发安全等；
+ *
+ * 这里用了LinkedHashMap也可以达到lfu的效果，自定义一个类继承LinkedHashMap，通过构造使他插入有序，并重写可以删除元素的方法；
  */
 class LRUCache<K, V> {
     private final int capacity;
@@ -95,14 +99,41 @@ class LRUCache<K, V> {
 
     public static void main(String[] args) {
         LRUCache<String, String> lruCache = new LRUCache<>(5);
-        lruCache.put("fist","1");
-        lruCache.put("second","2");
-        lruCache.put("third","3");
-        lruCache.put("fourth","4");
-        lruCache.put("fifth","5");
-        lruCache.put("sixth","6");
+        lruCache.put("fist", "1");
+        lruCache.put("second", "2");
+        lruCache.put("third", "3");
+        lruCache.put("fourth", "4");
+        lruCache.put("fifth", "5");
+        lruCache.put("sixth", "6");
         //测试发现已淘汰最近最久未使用的
-        System.out.println(lruCache.get("sixth"));
-        System.out.println(lruCache.get("first"));
+        /*System.out.println(lruCache.get("sixth"));
+        System.out.println(lruCache.get("first"));*/
+
+        LFU lfu = new LFU(5);
+        lfu.put("fist", "1");
+        lfu.put("second", "2");
+        lfu.put("third", "3");
+        lfu.put("fourth", "4");
+        lfu.put("fifth", "5");
+        lfu.put("sixth", "6");
+        Set<Map.Entry<String, String>> entries = lfu.entrySet();
+        for (Map.Entry<String, String> entry : entries) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+    }
+
+    static class LFU extends LinkedHashMap<String, String> {
+        private final int capacity;
+
+        public LFU(int capacity) {
+            super(capacity, 0.75f, true);
+            this.capacity = capacity;
+        }
+
+        @Override
+        protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
+            //元素个数大于容量，删除元素，淘汰lfu数据
+            return size() > capacity;
+        }
     }
 }

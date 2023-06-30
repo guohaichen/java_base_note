@@ -303,6 +303,8 @@ public class InsertSort {
 >  * 缓存命中率，考虑如何最大化命中率，将最近使用的放在链表头，淘汰链表尾部等;
 >  * 缓存淘汰策略，在缓存容量不足时，需要考虑选择最久未使用的数据进行淘汰;
 >  * 并发安全等；
+>
+> LinkedHashMap有序的HashMap，改造一下可实现LFU; 详见代码 com.Algorithmic_thinking.lru.LRUCache
 
 ```java
 class LRUCache<K, V> {
