@@ -296,6 +296,96 @@ public class InsertSort {
 
 ```
 
+### LRU
+
+> 最近最久未使用，常见的页面置换算法，Least Frequently Used;在设计一个lru时，需要考虑：
+>  * 缓存容量大小;
+>  * 缓存命中率，考虑如何最大化命中率，将最近使用的放在链表头，淘汰链表尾部等;
+>  * 缓存淘汰策略，在缓存容量不足时，需要考虑选择最久未使用的数据进行淘汰;
+>  * 并发安全等；
+
+```java
+class LRUCache<K, V> {
+  private final int capacity;
+  private final Map<K, Node> cache;
+  private final Node head;
+  private final Node tail;
+
+  class Node {
+    K key;
+    V value;
+    Node prev;
+    Node next;
+
+    Node(K key, V value) {
+      this.key = key;
+      this.value = value;
+    }
+  }
+
+  public LRUCache(int capacity) {
+    this.capacity = capacity;
+    this.cache = new HashMap<>();
+    this.head = new Node(null, null);
+    this.tail = new Node(null, null);
+    this.head.next = tail;
+    this.tail.prev = head;
+  }
+
+  public V get(K key) {
+    Node node = cache.get(key);
+    if (node != null) {
+      // 将访问的节点移动到链表头部
+      moveToHead(node);
+      return node.value;
+    }
+    return null;
+  }
+
+  public void put(K key, V value) {
+    Node node = cache.get(key);
+    if (node != null) {
+      // 更新节点的值，并将节点移动到链表头部
+      node.value = value;
+      moveToHead(node);
+    } else {
+      if (cache.size() >= capacity) {
+        // 移除最久未使用的节点（链表尾部）
+        Node removed = removeTail();
+        cache.remove(removed.key);
+      }
+      // 创建新节点，并将节点插入链表头部
+      Node newNode = new Node(key, value);
+      cache.put(key, newNode);
+      addToHead(newNode);
+    }
+  }
+
+  private void moveToHead(Node node) {
+    removeNode(node);
+    addToHead(node);
+  }
+
+  private void removeNode(Node node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+  }
+
+  private void addToHead(Node node) {
+    node.next = head.next;
+    node.prev = head;
+    head.next.prev = node;
+    head.next = node;
+  }
+
+  private Node removeTail() {
+    Node removed = tail.prev;
+    removeNode(removed);
+    return removed;
+  }
+}
+```
+
 ## LeetCode
 
 ### 反转字符串
