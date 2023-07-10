@@ -459,7 +459,7 @@ public class ReverseString {
 
 - HashMap的底层数据结构，哈希碰撞是如何解决的？
 - 链表的树化情况，什么情况下会退化为链表？
-- 扩容规则为何是2^n，负载因子为何为0.7？
+- 扩容规则为何是2^n，负载因子为何为0.75？
 - 说一下`hash`方法
 - HashMap的线程安全问题？解释一下ConcurrentModificationException?
 - jdk1.7和1.8中的HashMap有什么区别
