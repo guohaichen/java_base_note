@@ -1,4 +1,6 @@
-package com.Algorithmic_thinking.tree;
+package com.Algorithmic_thinking.tree.query;
+
+import com.Algorithmic_thinking.tree.BinaryTree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
  *   /   \     /   \
  * 1      2   7     8
  */
-public class BinaryTreeSelect {
+public class BinaryTreeQuery {
     static ArrayList<Integer> arrayList = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -44,6 +46,7 @@ public class BinaryTreeSelect {
         inorder(root.rightNode);
         return arrayList;
     }
+
     //后序遍历，右 - 左 - 中
     public static List<Integer> postorder(BinaryTree.TreeNode root){
         if (root == null){
@@ -56,35 +59,3 @@ public class BinaryTreeSelect {
     }
 }
 
-//二叉树结构
-class BinaryTree {
-    private final TreeNode root;
-    static class TreeNode {
-        int val;
-        TreeNode leftNode;
-        TreeNode rightNode;
-
-        public TreeNode(int val) {
-            this.val = val;
-            leftNode = null;
-            rightNode = null;
-        }
-    }
-    //构建一个二叉树
-    public BinaryTree() {
-        root = new TreeNode(5);
-        //左子树
-        TreeNode node4 = new TreeNode(4);
-        root.leftNode = node4;
-        node4.leftNode = new TreeNode(1);
-        node4.rightNode = new TreeNode(2);
-        //右子树
-        TreeNode node6 = new TreeNode(6);
-        root.rightNode = node6;
-        node6.leftNode = new TreeNode(7);
-        node6.rightNode = new TreeNode(8);
-    }
-    public TreeNode getRoot() {
-        return root;
-    }
-}
