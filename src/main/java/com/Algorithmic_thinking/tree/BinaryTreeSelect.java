@@ -49,8 +49,8 @@ public class BinaryTreeSelect {
         if (root == null){
             return arrayList;
         }
-        postorder(root.rightNode);
         postorder(root.leftNode);
+        postorder(root.rightNode);
         arrayList.add(root.val);
         return arrayList;
     }
