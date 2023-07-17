@@ -414,6 +414,18 @@ public class ReverseString {
 }
 ```
 
+### 二叉树
+
+> 掌握二叉树的基本遍历方式：前中后序： 递归/非递归（栈）;
+>
+> 前序遍历：根节点 - 左节点 - 右节点
+>
+> 中序遍历：左节点 - 根节点 - 右节点
+>
+> 后序遍历：左节点 - 右节点 - 根节点
+
+*见代码 com/Algorithmic_thinking/tree/query 包下*
+
 ## Mybatis-Plus
 
 ### 注解

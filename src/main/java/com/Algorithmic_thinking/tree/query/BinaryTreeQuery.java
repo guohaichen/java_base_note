@@ -9,6 +9,7 @@ import java.util.List;
  * @author cgh
  * @create 2023-07-14
  * 二叉树的前中后序遍历， 假设有一颗 这样的二叉树，使用前中后序方式遍历
+ * 递归法
  *           5
  *        /     \
  *      4        6
@@ -20,12 +21,12 @@ public class BinaryTreeQuery {
 
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
-//        System.out.println(preorder(binaryTree.getRoot()));
+        System.out.println(preorder(binaryTree.getRoot()));
 //        System.out.println(inorder(binaryTree.getRoot()));
-        System.out.println(postorder(binaryTree.getRoot()));
+//        System.out.println(postorder(binaryTree.getRoot()));
     }
 
-    //前序遍历，中 - 左 - 右
+    //前序遍历，根 - 左 - 右
     public static List<Integer> preorder(BinaryTree.TreeNode root) {
         if (root == null) {
             return arrayList;
@@ -36,7 +37,7 @@ public class BinaryTreeQuery {
         return arrayList;
     }
 
-    //中序遍历， 左 - 中 - 右
+    //中序遍历， 左 - 根 - 右
     public static List<Integer> inorder(BinaryTree.TreeNode root) {
         if (root == null) {
             return arrayList;
@@ -47,7 +48,7 @@ public class BinaryTreeQuery {
         return arrayList;
     }
 
-    //后序遍历，右 - 左 - 中
+    //后序遍历，左 - 右 - 根
     public static List<Integer> postorder(BinaryTree.TreeNode root){
         if (root == null){
             return arrayList;
