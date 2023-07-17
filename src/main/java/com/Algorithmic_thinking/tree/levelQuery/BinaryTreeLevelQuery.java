@@ -1,4 +1,4 @@
-package com.Algorithmic_thinking.tree.level;
+package com.Algorithmic_thinking.tree.levelQuery;
 
 import com.Algorithmic_thinking.tree.BinaryTree;
 
@@ -11,6 +11,7 @@ import java.util.Queue;
  * @author cgh
  * @create 2023-07-14
  * 二叉树的 层序遍历 深度优先dfs
+ * leetcode 102
  */
 public class BinaryTreeLevelQuery {
     public static void main(String[] args) {

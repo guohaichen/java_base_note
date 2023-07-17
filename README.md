@@ -424,7 +424,61 @@ public class ReverseString {
 >
 > 后序遍历：左节点 - 右节点 - 根节点
 
-*见代码 com/Algorithmic_thinking/tree/query 包下*
+*见代码 com/Algorithmic_thinking/tree/query 包下*；
+
+### 102.二叉树的层序遍历
+
+```java
+ public static List<List<Integer>> levelQuery(BinaryTree.TreeNode root) {
+        if (root == null) {
+            return new ArrayList<>();
+        }
+        //存放每层node
+        List<List<Integer>> levelList = new ArrayList<>();
+        //借助队列，先进先出
+        Queue<BinaryTree.TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            //存放node
+            ArrayList<Integer> nodeList = new ArrayList<>();
+            int size = queue.size();
+            while (size > 0) {
+                BinaryTree.TreeNode tmpNode = queue.poll();
+                nodeList.add(tmpNode.val);
+                if (tmpNode.leftNode != null) {
+                    queue.offer(tmpNode.leftNode);
+                }
+                if (tmpNode.rightNode != null) {
+                    queue.offer(tmpNode.rightNode);
+                }
+                size--;
+            }
+            levelList.add(nodeList);
+        }
+        return levelList;
+    }
+```
+
+### 226 翻转二叉树
+
+```java
+public static void reverseTree(BinaryTree.TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        //注意 这里只能使用前序和后序
+        reverseTree(root.leftNode);
+        swap(root);
+        reverseTree(root.rightNode);
+    }
+
+    //根据 根节点对左右节点进行翻转
+    private static void swap(BinaryTree.TreeNode root) {
+        BinaryTree.TreeNode tempNode = root.leftNode;
+        root.leftNode = root.rightNode;
+        root.rightNode = tempNode;
+    }
+```
 
 ## Mybatis-Plus
 

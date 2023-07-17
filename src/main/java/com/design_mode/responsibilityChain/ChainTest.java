@@ -25,7 +25,7 @@ public class ChainTest {
         AbstractLogger loggerChain = getChainOfLoggers();
         loggerChain.logMessage(AbstractLogger.INFO, "this is an information");
         System.out.println("--------------------");
-        loggerChain.logMessage(AbstractLogger.DEBUG, "this is a debug level information");
+        loggerChain.logMessage(AbstractLogger.DEBUG, "this is a debug levelQuery information");
         System.out.println("--------------------");
         loggerChain.logMessage(AbstractLogger.ERROR, "this is an error information");
     }
