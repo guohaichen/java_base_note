@@ -1,4 +1,4 @@
-package com.base.aspectj.service;
+package com.spring.aspectj.service;
 
 /**
  * @author cgh
