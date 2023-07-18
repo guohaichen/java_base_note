@@ -6,4 +6,5 @@ package com.base.aspectj.service;
  */
 public interface QueryInfo {
     void query();
+    void update();
 }

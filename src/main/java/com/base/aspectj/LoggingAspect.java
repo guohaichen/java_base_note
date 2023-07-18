@@ -1,7 +1,10 @@
 package com.base.aspectj;
 
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 
 /**
  * @author cgh
@@ -10,20 +13,23 @@ import org.aspectj.lang.annotation.*;
  */
 @Aspect
 public class LoggingAspect {
-    //定义切点，匹配所有方法
-    @Pointcut("execution(* *(..))")
-    public void anyPublicMethod() {
+    //定义切点，只增强query方法，这里具体看切点表达式
+    @Pointcut("execution(* query(..))")
+    public void queryMethod() {
     }
 
-    //前置通知，在目标方法执行之前执行
-    @Before("anyPublicMethod()")
-    public void beforeAdvice(JoinPoint joinPoint) {
-        System.out.println("before method: " + joinPoint.getSignature().getName());
+//    前置通知，在目标方法执行之前执行
+    @Before("queryMethod()")
+    public void beforeAdvice() {
+        System.out.println("LoggingAspect before;");
     }
 
-    @After("anyPublicMethod()")
-    public void afterAdvice(JoinPoint joinPoint) {
-        System.out.println("after method" + joinPoint.getSignature().getName());
+    @Around("queryMethod()")
+    public Object afterAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("LoggingAspect around start");
+        //使用around需要显示调用proceed方法
+        Object proceed = joinPoint.proceed();
+        System.out.println("LoggingAspect around end");
+        return proceed;
     }
-
 }

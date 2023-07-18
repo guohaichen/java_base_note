@@ -13,11 +13,12 @@ public class AjcDriver {
         QueryUserInfo queryUserInfo = new QueryUserInfo();
         //调用query方法，发现还是被增强了，
         queryUserInfo.query();
+        queryUserInfo.update();
         /*验证queryUserInfo并不是代理类，查看class文件,如下，说明是在编译器就被修改了。
         JoinPoint var1 = Factory.makeJP(ajc$tjp_0, this, this);
         LoggingAspect.aspectOf().beforeAdvice(var1);
         System.out.println("select * from user;");
          */
-        System.out.println(queryUserInfo.getClass());
+//        System.out.println(queryUserInfo.getClass());
     }
 }
