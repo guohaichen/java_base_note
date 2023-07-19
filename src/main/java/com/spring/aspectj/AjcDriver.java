@@ -1,6 +1,6 @@
-package com.base.aspectj;
+package com.spring.aspectj;
 
-import com.base.aspectj.service.impl.QueryUserInfo;
+import com.spring.aspectj.service.impl.QueryUserInfo;
 
 /**
  * @author cgh

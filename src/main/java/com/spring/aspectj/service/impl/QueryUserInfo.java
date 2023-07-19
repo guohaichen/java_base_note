@@ -1,6 +1,6 @@
-package com.base.aspectj.service.impl;
+package com.spring.aspectj.service.impl;
 
-import com.base.aspectj.service.QueryInfo;
+import com.spring.aspectj.service.QueryInfo;
 
 /**
  * @author cgh
