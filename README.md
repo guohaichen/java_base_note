@@ -64,9 +64,7 @@
 
 ##### 1.3.5 静态内部类单例
 
-#### 二、单例模式
-
-**问题**：
+##### 2、单例模式问题：
 
 1. 为什么要使用单例模式？
 2. 单例存在哪些问题？
@@ -457,9 +455,10 @@ public class ReverseString {
         }
         return levelList;
     }
+}
 ```
 
-### 226 翻转二叉树
+### 226.翻转二叉树
 
 ```java
 public static void reverseTree(BinaryTree.TreeNode root) {
@@ -478,6 +477,38 @@ public static void reverseTree(BinaryTree.TreeNode root) {
         root.leftNode = root.rightNode;
         root.rightNode = tempNode;
     }
+```
+
+### 349.两个数组的交集
+
+```java
+/*给定两个数组 nums1 和 nums2 ，返回 它们的交集 。输出结果中的每个元素一定是 唯一 的。我们可以 不考虑输出结果的顺序 。
+输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+输出：[9,4]
+解释：[4,9] 也是可通过的 */
+//已试过hashmap,没做出来，改用hashSet,hashSet key不重复，value为new object;
+public static int[] intersection(int[] nums1, int[] nums2) {
+
+    //存放其中一个数组的值
+    HashSet<Integer> keyHashSet = new HashSet<>();
+    //用来保存最后结果
+    HashSet<Integer> resultSet = new HashSet<>();
+    for (int i : nums1) {
+      keyHashSet.add(i);
+    }
+    for (int i : nums2) {
+      //相同的值
+      if (keyHashSet.contains(i)) {
+        resultSet.add(i);
+      }
+    }
+    int[] result = new int[resultSet.size()];
+    int i = 0;
+    for (Integer integer : resultSet) {
+      result[i++] = integer;
+    }
+    return result;
+}
 ```
 
 ## Mybatis-Plus

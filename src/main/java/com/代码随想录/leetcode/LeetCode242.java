@@ -14,9 +14,10 @@ import java.util.HashMap;
  */
 public class LeetCode242 {
     public static void main(String[] args) {
-        String str1 = "rat";
-        String str2 = "car";
+        String str1 = "anagram";
+        String str2 = "nagaram";
         System.out.println(isAnagram(str1, str2));
+        System.out.println(isAnagram2(str1, str2));
     }
 
     //思路就是将其中一个字符串放入hashMap中步长+1，再将另一个字符串也放入hashMap，步长-1，
@@ -35,5 +36,21 @@ public class LeetCode242 {
             }
         }
         return hashMap.isEmpty();
+    }
+
+    public static boolean isAnagram2(String s, String t) {
+        int[] result = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            result[s.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < t.length(); i++) {
+            result[t.charAt(i) - 'a']--;
+        }
+        for (int i : result) {
+            if (result[i] != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
