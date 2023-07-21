@@ -23,38 +23,48 @@ public class ReverseLinkedList {
     //查询链表
     private static void selectNode(Node head) {
         Node temp = head;
-        while (temp!=null) {
+        while (temp != null) {
             System.out.print(temp);
             temp = temp.next;
         }
     }
+
     //链表反转，双指针法
     static Node reverse(Node head) {
         Node prev = null;
         Node curr = head;
+        //temp 临时变量，如 1->2->3 ，要改变 2->1,需要先将 2->3 这个指针保存下来，不然就找不到了。
+        Node temp;
         while (curr != null) {
+            temp = curr.next;
             //1->2->3
             //3->2->1
-            //temp 临时变量，如 1->2->3 ，要改变 2->1,需要先将 2->3 这个指针保存下来，不然就找不到了。
-            Node temp =curr.next;
             // 将 2 指向 1；
             curr.next = prev;
             //pre.cur指针后移， pre1 cur2 temp3
             prev = curr;
+
             curr = temp;
         }
         return prev;
+    }
+    //链表反转，递归法 todo
+    static Node reverseRecursion(Node head) {
+        return null;
     }
 
     static class Node {
         int value;
         Node next;
+
         public Node(int value) {
             this.value = value;
         }
+
         public void setNext(Node next) {
             this.next = next;
         }
+
         @Override
         public String toString() {
             return "Node{" +
