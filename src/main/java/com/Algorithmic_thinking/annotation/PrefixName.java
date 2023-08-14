@@ -1,4 +1,4 @@
-package com.spring.annotation;
+package com.Algorithmic_thinking.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

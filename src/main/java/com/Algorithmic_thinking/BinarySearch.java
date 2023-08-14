@@ -16,7 +16,7 @@ package com.Algorithmic_thinking;
 public class
 BinarySearch {
     public static void main(String[] args) {
-        int[] array = {0, 1, 2, 3, 6, 7, 10, 22, 64, 232, 466, 678, 1202, 2202, 2052, 12622};
+        int[] array = {0, 1, 2, 3, 6, 7, 10, 22, 64, 232, 466, 678, 1202,2052, 2202, 12622};
         //要查找的目标target
         int target = 232;
 

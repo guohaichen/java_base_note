@@ -211,7 +211,7 @@ public class BinarySearch {
 2. 重复比较，直到整个数组有序；
 
 ```java
-public class Bubbling {
+public class sort.Bubbling {
     public static void main(String[] args) {
         int[] array = {22, 53, 4, 3, 1, 6, 8, 124, 532, 24, 464, 9, 47};
         for (int i = 0; i < array.length - 1; i++) {
@@ -247,7 +247,7 @@ public class Bubbling {
 2. 反复以上步骤，直到整个数组有序；
 
 ```java
-public class SelectionSort {
+public class sort.SelectionSort {
     public static void main(String[] args) {
         int[] array = {22, 53, 4, 3, 1, 6, 8, 124, 532, 24, 464, 9, 47};
         //i代表每轮选择最小元素要交换到的目标索引
