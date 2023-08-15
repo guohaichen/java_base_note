@@ -43,4 +43,22 @@ public class BinaryTree {
     public TreeNode getRoot() {
         return root;
     }
+
+    //求树的最大高度
+    public int getMaxHeight(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int max = 0;
+        int maxL = 0;
+        int maxR = 0;
+        if (node.leftNode != null) {
+            maxL = getMaxHeight(node.leftNode);
+        }
+        if (node.rightNode != null) {
+            maxR = getMaxHeight(node.rightNode);
+        }
+        max = maxL > maxR ? maxL + 1 : maxR + 1;
+        return max;
+    }
 }
