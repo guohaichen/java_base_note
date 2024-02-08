@@ -1,5 +1,6 @@
 package com.leetcode.junior.array;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
  * eg:输入: [4,1,2,1,2]
  * 输出: 4
  */
-public class OneTimesNumber {
+public class OneTimesNumber implements Serializable {
     public static void main(String[] args) {
         int[] nums = {2, 3, 4, 5, 6, 2, 3, 4, 5, 1, 6};
 //        System.out.println(singleNumber(nums));

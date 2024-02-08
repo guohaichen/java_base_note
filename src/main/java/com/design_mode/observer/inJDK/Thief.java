@@ -23,7 +23,7 @@ public class Thief extends Observable {
     }
 
     public void steal(){
-        System.out.println("小偷:\t我偷东西了，有没有人来抓我！");
+        System.out.println(getName() +":\t我偷东西了，有没有人来抓我！");
         super.setChanged();
         super.notifyObservers();
     }

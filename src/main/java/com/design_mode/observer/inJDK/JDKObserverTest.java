@@ -14,7 +14,7 @@ package com.design_mode.observer.inJDK;
 public class JDKObserverTest {
     public static void main(String[] args) {
 
-        Thief thief = new Thief("小偷");
+        Thief thief = new Thief("jack盗贼");
 
         Policemen sir = new Policemen("谭sir");
         //将sir观察者添加到vector中

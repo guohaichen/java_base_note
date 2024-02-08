@@ -25,6 +25,6 @@ public class Policemen implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("警察:\t" + ((Thief) o).getName() + "，我已经盯上你了");
+        System.out.println(getName() + ":\t" + ((Thief) o).getName() + "，我已经盯上你了");
     }
 }

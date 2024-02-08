@@ -15,7 +15,8 @@ public class ReverseLinkedList {
         node1.setNext(node2);
         node2.setNext(node3);
         selectNode(head);
-        reverse(head);
+        reverseRecursion(head);
+
         System.out.println();
         System.out.println("反转后:");
         selectNode(node3);
@@ -48,9 +49,17 @@ public class ReverseLinkedList {
         }
         return prev;
     }
-    //链表反转，递归法 todo
-    static Node reverseRecursion(Node head) {
-        return null;
+    //链表反转，递归法；核心代码在 反转的代码是写在递归下方
+    static Node reverseRecursion(Node node) {
+        if (node == null || node.next ==null){
+            return node;
+        }
+        Node last = reverseRecursion(node.next);
+
+        node.next.next = node;
+
+        node.next =null;
+        return last;
     }
 
     static class Node {
