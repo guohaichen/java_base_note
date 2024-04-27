@@ -15,12 +15,12 @@ public class ReverseLinkedList {
         node1.setNext(node2);
         node2.setNext(node3);
         selectNode(head);
-        reverseRecursion(head);
-
+        Node node = recursionReserve(head);
         System.out.println();
         System.out.println("反转后:");
-        selectNode(node3);
+        selectNode(node);
     }
+
     //查询链表
     private static void selectNode(Node head) {
         Node temp = head;
@@ -34,32 +34,33 @@ public class ReverseLinkedList {
     static Node reverse(Node head) {
         Node prev = null;
         Node curr = head;
-        //temp 临时变量，如 1->2->3 ，要改变 2->1,需要先将 2->3 这个指针保存下来，不然就找不到了。
-        Node temp;
         while (curr != null) {
-            temp = curr.next;
             //1->2->3
             //3->2->1
+            //temp 临时变量，如 1->2->3 ，要改变 2->1,需要先将 2->3 这个指针保存下来，不然就找不到了。
+            Node temp = curr.next;
             // 将 2 指向 1；
             curr.next = prev;
             //pre.cur指针后移， pre1 cur2 temp3
             prev = curr;
-
             curr = temp;
         }
         return prev;
     }
-    //链表反转，递归法；核心代码在 反转的代码是写在递归下方
-    static Node reverseRecursion(Node node) {
-        if (node == null || node.next ==null){
-            return node;
+
+    //构造新的链表，头插法返回 新链表即翻转链表
+    static Node headReverse(Node node) {
+        Node head = null;
+        Node n1 = node;
+        while (n1 != null) {
+
+            //头插
+            head = new Node(n1.value, head);
+
+            // 指针后移
+            n1 = n1.next;
         }
-        Node last = reverseRecursion(node.next);
-
-        node.next.next = node;
-
-        node.next =null;
-        return last;
+        return head;
     }
 
     static class Node {
@@ -68,6 +69,11 @@ public class ReverseLinkedList {
 
         public Node(int value) {
             this.value = value;
+        }
+
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
         }
 
         public void setNext(Node next) {
@@ -80,6 +86,23 @@ public class ReverseLinkedList {
                     "value=" + value + "}  ";
         }
     }
+
+    //递归反转
+    static Node recursionReserve(Node node) {
+        while (node == null || node.next == null) {
+            //返回最后的节点
+            return node;
+        }
+        Node last = recursionReserve(node.next);
+        // 使4-3
+        node.next.next = node;
+        //节点3本来指向4,经过上一步反转后4-3，需要将3指向null，否则就构成了环
+        node.next = null;
+        return last;
+    }
+
+
+
 }
 
 
