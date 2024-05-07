@@ -1,11 +1,9 @@
 package com.Algorithmic_thinking.tree.query;
 
 import com.Algorithmic_thinking.tree.BinaryTree;
+import com.Algorithmic_thinking.tree.BinaryTree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author cgh
@@ -21,7 +19,7 @@ public class BinaryTreeQueryByStack {
             return;
         }
         System.out.println("前序遍历: " + preorder(binaryTree.getRoot()));
-
+        System.out.println("中序遍历: " + inOrder(binaryTree.getRoot()));
         System.out.println("后序遍历: " + postorder(binaryTree.getRoot()));
     }
 
@@ -46,7 +44,27 @@ public class BinaryTreeQueryByStack {
         return resultList;
     }
 
-    //todo 中序遍历
+    // 中序遍历 左-跟-右 另一种写发。稍微改改就是前序遍历
+    public static List<Integer> inOrder(BinaryTree.TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+
+        LinkedList<TreeNode> stack = new LinkedList<>();
+        TreeNode current = root;
+        while (current != null || !stack.isEmpty()) {
+            if (current != null) {
+                //左子树
+                stack.push(current);
+                //前序遍历
+//                list.add(current.val);
+                current = current.leftNode;
+            } else {
+                TreeNode pop = stack.pop();
+                list.add(pop.val);
+                current = pop.rightNode;
+            }
+        }
+        return list;
+    }
 
     //后序遍历,后续遍历的思路：
     public static List<Integer> postorder(BinaryTree.TreeNode root) {

@@ -10,7 +10,7 @@ import java.util.Queue;
 /**
  * @author cgh
  * @create 2023-07-14
- * 二叉树的 层序遍历 深度优先dfs
+ * 二叉树的 层序遍历 （更正为广度优先搜索）注意， 深度优先dfs指的是前中后序遍历；
  * leetcode 102
  */
 public class BinaryTreeLevelQuery {
