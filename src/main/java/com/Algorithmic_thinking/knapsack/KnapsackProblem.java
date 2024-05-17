@@ -59,7 +59,8 @@ public class KnapsackProblem {
         };
 
         int value = select(items, 10);
-        System.out.println(value);
+        System.out.println("dp二维数组的结果:\t"+value);
+        System.out.println("dp降维一维数组的结果:\t" + select2(items, 10));
     }
 
     /**
@@ -103,5 +104,42 @@ public class KnapsackProblem {
         return dp[items.length - 1][total];
     }
 
+
+    /**
+     * 二维数组降维 之前dp是定义了二维数组，
+     *
+     * @param items
+     * @param total
+     * @return
+     */
+    static int select2(Item[] items, int total) {
+        //第一步 先将第一行填充
+        Item item0 = items[0];
+        //一维数组
+        int[] dp = new int[total + 1];
+        for (int i = 0; i <= total; i++) {
+            //如果能装下
+            if (item0.weight <= i) {
+                dp[i] = item0.value;
+            } else {
+                //装不下
+                dp[i] = 0;
+            }
+        }
+        //这里从后往前 向背包中装了，是因为能装下判断大小时，需要用到之前的背包的物品，
+        for (int i = 1; i < items.length; i++) {
+            Item itemI = items[i];
+
+            for (int j = total; j >= 0; j--) {
+                //能装下
+                if (j >= itemI.weight) {
+                    //对比上次的重量 和 (本次放入的重量以及剩余重量能存存访的物品)
+                    dp[j] = Integer.max(dp[j], itemI.value + dp[j - itemI.weight]);
+                }
+                //装不下 就按照之前的:dp[i]=dp[i]所以省略了
+            }
+        }
+        return dp[total];
+    }
 
 }
