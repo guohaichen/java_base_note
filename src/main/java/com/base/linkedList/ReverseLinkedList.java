@@ -1,4 +1,4 @@
-package com.leetcode.junior.linkedList;
+package com.base.linkedList;
 
 /**
  * @author cgh

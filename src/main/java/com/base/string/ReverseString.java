@@ -1,4 +1,4 @@
-package com.leetcode.junior.string;
+package com.base.string;
 
 /**
  * @author cgh

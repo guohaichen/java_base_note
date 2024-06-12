@@ -21,8 +21,8 @@ public class BinaryTreeQuery {
 
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
-        System.out.println(preorder(binaryTree.getRoot()));
-//        System.out.println(inorder(binaryTree.getRoot()));
+//        System.out.println(preorder(binaryTree.getRoot()));
+        System.out.println(inorder(binaryTree.getRoot()));
 //        System.out.println(postorder(binaryTree.getRoot()));
     }
 
